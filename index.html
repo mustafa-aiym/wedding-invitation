@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Бекзат & Дана — Үйлену Той</title>
+  <title>Мустафа & Айым — Үйлену Той</title>
   <link rel="stylesheet" href="styles.css" />
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="pics/main_icon.png">
   
   <!-- Open Graph для соцсетей -->
-  <meta property="og:title" content="Бекзат & Дана — Үйлену Той" />
+  <meta property="og:title" content="Мустафа & Айым — Үйлену Той" />
   <meta property="og:description" content="Үйлену тойымызға қош келдіңіз!" />
-  <meta property="og:image" content="https://bekzat-dana.github.io/wedding-invitation/pics/main_icon.png" />
-  <meta property="og:url" content="https://bekzat-dana.github.io/wedding-invitation/" />
+  <meta property="og:image" content="https://mustafa-aiym.github.io/wedding-invitation/pics/main_icon.png" />
+  <meta property="og:url" content="https://mustafa-aiym.github.io/wedding-invitation/" />
   <meta property="og:type" content="website" />
   <style>
     
@@ -24,30 +24,30 @@
     <div class="overlay"></div>
     <div class="section1-content">
       <h1 class="fade-in" style="margin-top: 130px;">Үйлену тойға шақыру</h1>
-      <h2 class="fade-in section1-name" style="margin-top: 60px;">Бекзат & Дана</h2>
-      <h3 class="fade-in" style="margin-top: 60px; margin-bottom: 20px;">19.07.2025</h3>
-      <h3 class="fade-in">Астана</h3>
+      <h2 class="fade-in section1-name" style="margin-top: 60px;">Мустафа & Айым</h2>
+      <h3 class="fade-in" style="margin-top: 60px; margin-bottom: 20px;">30.08.2025</h3>
+      <h3 class="fade-in">Тараз</h3>
       <div class="fade-in countdown" id="countdown"></div>
     </div>
   </section>
 
   <section class="section2">
     <h1 class="fade-in">Құрметті қонақтар!</h1>
-    <p class="fade-in">Сіздерді баламыз Бекзат пен келініміз Дананың үйлену тойына арналған салтанатты дастарханымыздың қадірлі қонағы болуға шақырамыз!</p>
+    <p class="fade-in">Сіздерді баламыз Мустафа мен келініміз Айымның үйлену тойына арналған салтанатты дастарханымыздың қадірлі қонағы болуға шақырамыз!</p>
     <div class="fade-in line"></div>
     <div class="info-section">
       <div class="info-block">
         <img class="fade-in" src="pics/calendar.png" alt="calendar icon" />
         <div class="info-text">
-          <div class="fade-in"><strong>19 шілде 2025 жыл</strong></div>
+          <div class="fade-in"><strong>30 тамыз 2025 жыл</strong></div>
           <div class="fade-in">Сенбі, 17:00</div>
         </div>
       </div>
       <div class="info-block">
         <img class="fade-in" src="pics/location.png" alt="location icon" />
         <div class="info-text">
-          <div class="fade-in"><strong>Банкет залы Samruk 777</strong></div>
-          <div class="fade-in">Бейімбет Майлин к., 20/10</div>
+          <div class="fade-in"><strong>Банкет залы Думан Шырын</strong></div>
+          <div class="fade-in">Жилмассив Тонкуруш, 5а</div>
         </div>
       </div>
     </div>
@@ -57,7 +57,7 @@
     <div class="overlay"></div>
     <div class="section3-content">
       <h3 class="fade-in">Той иелері</h3>
-      <h2 class="fade-in section3-name">Ардақ - Тамара</h2>
+      <h2 class="fade-in section3-name">Мырзабай — Жанар</h2>
       <img src="pics/line.png" alt="line" class="line-image fade-in">
     </div>
   </section>
@@ -87,13 +87,13 @@
 <script>
   ymaps.ready(function () {
     const myMap = new ymaps.Map('map', {
-      center: [51.147174, 71.482848], // координаты Астаны, можешь заменить на точные координаты зала
+      center: [42.921276, 71.397730], // координаты зала
       zoom: 16
     });
 
     const myPlacemark = new ymaps.Placemark([51.147174, 71.482848], {
-      hintContent: 'Банкет залы Samruk 777',
-      balloonContent: 'Бейімбет Майлин к., 20/10'
+      hintContent: 'Банкет залы Думан Шырын',
+      balloonContent: 'Жилмассив Тонкуруш, 5а'
     });
 
     myMap.geoObjects.add(myPlacemark);
@@ -120,7 +120,7 @@
 
 
   <script>
-    const targetDate = new Date("2025-07-19T17:00:00").getTime();
+    const targetDate = new Date("2025-08-30T17:00:00").getTime();
     const countdownEl = document.getElementById("countdown");
 
     function updateCountdown() {
@@ -170,7 +170,7 @@
     e.preventDefault();
     const form = e.target;
     const data = new FormData(form);
-    fetch('https://docs.google.com/forms/d/e/1FAIpQLSefRhWLKjDB2-jTac3B1X4xHr9clqQq41_bGzKb0lD19RxCtA/formResponse', {
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLSdBtLM6roJslYhHVzCa1D6DgmTRlt-fCuhxSVcNRcxrSA8RvQ/formResponse', {
       method: 'POST',
       mode: 'no-cors',
       body: data
