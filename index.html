@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Бекзат & Дана — Үйлену Той</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="pics/main_icon.png">
+  
+  <!-- Open Graph для соцсетей -->
+  <meta property="og:title" content="Бекзат & Дана — Үйлену Той" />
+  <meta property="og:description" content="Үйлену тойымызға қош келдіңіз!" />
+  <meta property="og:image" content="https://bekzat-dana.github.io/wedding-invitation/pics/main_icon.png" />
+  <meta property="og:url" content="https://bekzat-dana.github.io/wedding-invitation/" />
+  <meta property="og:type" content="website" />
+  <style>
+    
+  </style>
+</head>
+<body>
+
+  <section class="section1">
+    <div class="overlay"></div>
+    <div class="section1-content">
+      <h1 class="fade-in" style="margin-top: 130px;">Үйлену тойға шақыру</h1>
+      <h2 class="fade-in section1-name" style="margin-top: 60px;">Бекзат & Дана</h2>
+      <h3 class="fade-in" style="margin-top: 60px; margin-bottom: 20px;">19.07.2025</h3>
+      <h3 class="fade-in">Астана</h3>
+      <div class="fade-in countdown" id="countdown"></div>
+    </div>
+  </section>
+
+  <section class="section2">
+    <h1 class="fade-in">Құрметті қонақтар!</h1>
+    <p class="fade-in">Сіздерді баламыз Бекзат пен келініміз Дананың үйлену тойына арналған салтанатты дастарханымыздың қадірлі қонағы болуға шақырамыз!</p>
+    <div class="fade-in line"></div>
+    <div class="info-section">
+      <div class="info-block">
+        <img class="fade-in" src="pics/calendar.png" alt="calendar icon" />
+        <div class="info-text">
+          <div class="fade-in"><strong>19 шілде 2025 жыл</strong></div>
+          <div class="fade-in">Сенбі, 17:00</div>
+        </div>
+      </div>
+      <div class="info-block">
+        <img class="fade-in" src="pics/location.png" alt="location icon" />
+        <div class="info-text">
+          <div class="fade-in"><strong>Банкет залы Samruk 777</strong></div>
+          <div class="fade-in">Бейімбет Майлин к., 20/10</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section3">
+    <div class="overlay"></div>
+    <div class="section3-content">
+      <h3 class="fade-in">Той иелері</h3>
+      <h2 class="fade-in section3-name">Ардақ - Тамара</h2>
+      <img src="pics/line.png" alt="line" class="line-image fade-in">
+    </div>
+  </section>
+
+  <section class="section4" style="font-family: 'Kz_ITC-New-Veljovic-DS-Pro-Book-It_kz';">
+    <p class="fade-in" style="font-size: 22px; font-weight: bold;">Тойға қатысуыңызды растауыңызды сұраймыз</p>
+    <form id="rsvp-form">
+      <input class="fade-in" type="text" name="entry.763296163" placeholder="Аты-жөніңіз" required />
+      <input class="fade-in" type="text" name="entry.1810413915" placeholder="Неше адам" required />
+      <label class="fade-in"><input class="fade-in" type="radio" name="entry.1818277347" value="Қатысамыз" required /> Қатысамыз</label>
+      <label class="fade-in"><input class="fade-in" type="radio" name="entry.1818277347" value="Келе алмаймыз" /> Келе алмаймыз</label>
+      <button class="fade-in" type="submit">Жіберу</button>
+    </form>
+    <p id="confirmation" style="color: green; display: none;">Рақмет! Жауабыңыз қабылданды.</p>
+  </section>
+  
+
+
+<!-- Подключение скрипта Яндекс.Карт -->
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+
+<section class="section5">
+  <!-- Контейнер карты -->
+  <div class="fade-in" id="map" style="width: 100%; height: 400px;"></div>
+</section>
+
+<script>
+  ymaps.ready(function () {
+    const myMap = new ymaps.Map('map', {
+      center: [51.147174, 71.482848], // координаты Астаны, можешь заменить на точные координаты зала
+      zoom: 16
+    });
+
+    const myPlacemark = new ymaps.Placemark([51.147174, 71.482848], {
+      hintContent: 'Банкет залы Samruk 777',
+      balloonContent: 'Бейімбет Майлин к., 20/10'
+    });
+
+    myMap.geoObjects.add(myPlacemark);
+  });
+</script>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // Убираем, если не хотим повторного появления
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  // Находим все элементы с классом fade-in
+  document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+
+
+  <script>
+    const targetDate = new Date("2025-07-19T17:00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      countdownEl.innerHTML = `
+        <div>${days} күн</div>
+        <div>${hours} сағ</div>
+        <div>${minutes} мин</div>
+        <div>${seconds} сек</div>
+      `;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    function sendResponse() {
+      const name = document.getElementById("name").value;
+      const guests = document.getElementById("guests").value;
+      const status = document.querySelector('input[name="status"]:checked')?.value;
+      if (!name || !guests || !status) {
+        alert("Барлық өрістерді толтырыңыз");
+        return;
+      }
+
+      fetch("https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, guests, status })
+      });
+
+      document.getElementById("confirmation").style.display = "block";
+      document.getElementById("name").value = "";
+      document.getElementById("guests").value = "";
+      document.querySelectorAll('input[name="status"]').forEach(el => el.checked = false);
+    }
+
+
+    document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLSefRhWLKjDB2-jTac3B1X4xHr9clqQq41_bGzKb0lD19RxCtA/formResponse', {
+      method: 'POST',
+      mode: 'no-cors',
+      body: data
+    }).then(() => {
+      form.style.display = 'none';
+      document.getElementById('confirmation').style.display = 'block';
+    }).catch((error) => {
+      alert('Қате орын алды. Қайтадан көріңіз.');
+    });
+  });
+  </script>
+
+
+<audio id="background-music" src="music/music1.mp3" autoplay loop></audio>
+
+<!-- Кнопка управления -->
+<button id="music-toggle" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 1000;
+">⏸️</button>
+
+<script>
+  const music = document.getElementById("background-music");
+  const toggleBtn = document.getElementById("music-toggle");
+  let hasInteracted = false;
+
+  function updateButton() {
+    toggleBtn.textContent = music.paused ? "▶️" : "⏸️";
+  }
+
+  toggleBtn.addEventListener("click", function () {
+    if (music.paused) {
+      music.play();
+    } else {
+      music.pause();
+    }
+    updateButton();
+  });
+
+  function tryAutoPlay() {
+    if (!hasInteracted) {
+      hasInteracted = true;
+      music.play().then(updateButton).catch(err => {
+        console.log("Autoplay blocked:", err);
+      });
+      // Можно удалить обработчик после первого запуска
+      window.removeEventListener("scroll", tryAutoPlay);
+      window.removeEventListener("touchstart", tryAutoPlay);
+    }
+  }
+
+  // Запускаем музыку при первом скролле или касании (на телефоне)
+  window.addEventListener("scroll", tryAutoPlay, { once: true });
+  window.addEventListener("touchstart", tryAutoPlay, { once: true });
+
+  document.addEventListener("DOMContentLoaded", updateButton);
+
+  window.addEventListener("beforeunload", () => {
+    music.pause();
+  });
+</script>
+
+</body>
+</html>
